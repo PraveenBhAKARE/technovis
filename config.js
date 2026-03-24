@@ -39,16 +39,16 @@ const TEKNOVIS_CONFIG = {
     hours: "Monday – Saturday, 9:00 AM – 6:00 PM IST",
   },
 
-  /* ── Images / Media ── 
-     CHANGE LOGO: Update images.logo path below.
-     CHANGE FOUNDER PHOTO: Update images.founderPic path below.
+  /* ──  / Media ── 
+     CHANGE LOGO: Update .logo path below.
+     CHANGE FOUNDER PHOTO: Update .founderPic path below.
      CHANGE COURSE THUMBNAILS: Update each course's thumbnail path below.
-     All paths are relative to the HTML files (e.g., "images/logo.png")
+     All paths are relative to the HTML files (e.g., "/logo.png")
   ── */
-  images: {
-    logo:       "images/Teknovis2.jpeg",   // ← CHANGE THIS to update logo across ALL pages
-    founderPic: "images/profile_pic.jpg",  // ← CHANGE THIS to update founder photo
-    sharedImg:  "images/shared image.jpg", // ← Shared decorative image
+  : {
+    logo:       "Teknovis2.jpeg",   // ← CHANGE THIS to update logo across ALL pages
+    founderPic: "profile_pic.jpg",  // ← CHANGE THIS to update founder photo
+    sharedImg:  "shared image.jpg", // ← Shared decorative image
     /* About page video — plays on loop in the about section */
     aboutVideo: "MicrosoftTeams-video.mp4",  // ← PASTE a video URL here (YouTube embed, mp4 link, etc.) to show a video in About
   },
@@ -89,7 +89,7 @@ const TEKNOVIS_CONFIG = {
       tag:         "Analytics",
       icon:        "analytics",
       gradient:    "linear-gradient(135deg,#1565C0,#42A5F5)",
-      thumbnail:   "images/Data Analyst.png",   // ← CHANGE course thumbnail here
+      thumbnail:   "/Data Analyst.png",   // ← CHANGE course thumbnail here
       description: "Master Excel, SQL, Power BI and Python to extract meaningful insights from complex datasets and build real-world dashboards.",
       skills:      ["Excel & SQL", "Python for Analytics", "Power BI", "Statistical Methods", "Dashboard Design"],
     },
@@ -99,7 +99,7 @@ const TEKNOVIS_CONFIG = {
       tag:         "Data Science",
       icon:        "datascience",
       gradient:    "linear-gradient(135deg,#0D47A1,#1976D2)",
-      thumbnail:   "images/Data Science.png",   // ← CHANGE course thumbnail here
+      thumbnail:   "/Data Science.png",   // ← CHANGE course thumbnail here
       description: "Learn statistical modeling, Python, machine learning fundamentals, and end-to-end data pipelines for data-driven decision-making.",
       skills:      ["Python & NumPy", "Pandas & Scikit-learn", "Statistics & Probability", "Machine Learning", "Model Deployment"],
     },
@@ -109,7 +109,7 @@ const TEKNOVIS_CONFIG = {
       tag:         "Generative AI",
       icon:        "genai",
       gradient:    "linear-gradient(135deg,#1E88E5,#64B5F6)",
-      thumbnail:   "images/Generative AI.png",  // ← CHANGE course thumbnail here
+      thumbnail:   "/Generative AI.png",  // ← CHANGE course thumbnail here
       description: "Explore LLMs, prompt engineering, RAG architectures, and building intelligent AI applications using the latest generative models.",
       skills:      ["LLMs & GPT APIs", "Prompt Engineering", "RAG Architecture", "LangChain", "AI Agent Design"],
     },
@@ -119,7 +119,7 @@ const TEKNOVIS_CONFIG = {
       tag:         "QA Testing",
       icon:        "testing",
       gradient:    "linear-gradient(135deg,#0277BD,#29B6F6)",
-      thumbnail:   "images/Software Testing1.png", // ← CHANGE course thumbnail here
+      thumbnail:   "/Software Testing1.png", // ← CHANGE course thumbnail here
       description: "Comprehensive QA training — manual testing, Selenium automation, TestNG, API testing, and agile methodologies for enterprise-ready skills.",
       skills:      ["Manual Testing", "Selenium WebDriver", "TestNG & JUnit", "API Testing (Postman)", "Agile & Scrum"],
     },
@@ -129,7 +129,7 @@ const TEKNOVIS_CONFIG = {
       tag:         "Development",
       icon:        "webdev",
       gradient:    "linear-gradient(135deg,#1565C0,#039BE5)",
-      thumbnail:   "images/Web Development.png",   // ← CHANGE course thumbnail here
+      thumbnail:   "/Web Development.png",   // ← CHANGE course thumbnail here
       description: "Build responsive, modern web applications using HTML5, CSS3, JavaScript, React, Node.js, and database integrations from scratch to deployment.",
       skills:      ["HTML5 & CSS3", "JavaScript & React", "Node.js & Express", "SQL & MongoDB", "Git & Deployment"],
     },
@@ -240,7 +240,7 @@ function buildLogo(href = "index.html") {
   return `
   <a href="${href}" class="logo">
     <div class="logo-icon">
-      <img src="${c.images.logo}" alt="${c.company.name} Logo" />
+      <img src="${c..logo}" alt="${c.company.name} Logo" />
     </div>
   </a>`;
 }
