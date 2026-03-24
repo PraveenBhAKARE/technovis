@@ -424,7 +424,7 @@ ul  { list-style: none; }
   background-size: 60px 60px;
 }
 .hero .container {
-   background: navy;
+  background: navy;
   position: relative; z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -880,7 +880,8 @@ backdrop-filter: blur(10px);
 .cta-section::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(100,181,246,0.12) 0%, transparent 60%);
+  background: navy;
+  /* background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(100,181,246,0.12) 0%, transparent 60%); */
 }
 .cta-section .container { position: relative; z-index: 2; }
 .cta-title {
