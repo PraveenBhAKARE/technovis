@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses — Teknovis Pvt Ltd</title>
+  <meta name="description" content="Professional training programs in Data Analytics, Data Science, Generative AI, Software Testing and Web Development." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<!-- ═══════════════ PAGE HERO ═══════════════ -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span>
+      <span style="color:rgba(255,255,255,0.9);">Courses</span>
+    </div>
+    <div class="page-hero-eyebrow">Professional Training Programs</div>
+    <h1 class="page-hero-title">Courses Built for the<br>Jobs of Tomorrow</h1>
+    <p class="page-hero-subtitle">Industry-aligned, project-based programs that transform beginners and professionals into sought-after tech talent.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ COURSES DETAIL ═══════════════ -->
+<section class="section bg-white">
+  <div class="container" id="coursesDetail"></div>
+</section>
+
+<!-- ═══════════════ WHY LEARN WITH US ═══════════════ -->
+<section class="section" style="background:var(--bg-section-2);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:52px;">
+      <div class="section-eyebrow">The Teknovis Difference</div>
+      <h2 class="section-title">What Sets Our Programs <span>Apart</span></h2>
+    </div>
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3 class="card-title">Live Interactive Sessions</h3>
+        <p class="card-text">Instructor-led live classes with real-time doubt resolution and peer collaboration — not just recorded videos.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3 class="card-title">Capstone Projects</h3>
+        <p class="card-text">Graduate with a portfolio of real-world projects that demonstrate your competency to hiring managers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3 class="card-title">Mentorship Support</h3>
+        <p class="card-text">One-on-one guidance from industry mentors who actively work in the domains they teach.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <h3 class="card-title">Career Readiness</h3>
+        <p class="card-text">Resume building, mock interviews, and industry networking support to help you land your next role.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Have Questions About Our Courses?</h2>
+    <p class="cta-subtitle">Reach out to our team and we'll help you choose the right program for your career goals.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;" id="ctaButtons"></div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="config.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const c = TEKNOVIS_CONFIG;
+
+  /* 1. Inject Header & Footer */
+  document.getElementById('header-placeholder').innerHTML = buildHeader('courses.html');
+  document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+  /* 2. MOBILE MENU LOGIC (The missing piece!) */
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  const header = document.getElementById('siteHeader');
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    // Close menu if clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+      }
+    });
+  }
+
+  // Header scroll effect
+  window.addEventListener('scroll', () => {
+    if(header) header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  /* 3. CTA buttons from config */
+  document.getElementById('ctaButtons').innerHTML = `
+    <a href="tel:${c.contact.phoneRaw}" class="btn btn-white">
+      ${ICONS.phone.replace('currentColor','var(--accent-deeper)')}
+      Call Now
+    </a>
+    <a href="contact.html" class="btn btn-ghost">Contact Us</a>`;
+
+  /* 4. Course detail rows — alternating left/right */
+  const extendedDescriptions = [
+    {
+      p1: "Data Analytics is the backbone of modern business strategy. This program equips you with the skills to collect, clean, analyse, and visualise data to drive informed decisions across industries.",
+      p2: "You will gain hands-on proficiency in Excel for data manipulation, SQL for querying relational databases, Python for automated analysis, and Power BI for creating executive-level dashboards."
+    },
+    {
+      p1: "Data Science combines programming, statistics, and domain knowledge to extract actionable intelligence from vast datasets. This program takes you from foundations to deploying predictive models.",
+      p2: "Learn supervised and unsupervised learning, feature engineering, and model evaluation. You will complete multiple end-to-end capstone projects."
+    },
+    {
+      p1: "Generative AI is redefining how software is built. This cutting-edge program dives deep into Large Language Models (LLMs), prompt engineering strategies, and RAG architectures.",
+      p2: "You'll learn to integrate LLMs into real applications using LangChain and vector databases, positioning you at the frontier of technology."
+    },
+    {
+      p1: "Quality assurance is a critical function in software development. This program prepares you for a QA career by teaching both manual and automation testing methodologies.",
+      p2: "Master Selenium WebDriver, TestNG, and API testing with Postman. The curriculum is aligned with ISTQB standards and agile development practices."
+    },
+    {
+      p1: "Web development remains one of the highest-demand career paths. This full-stack program takes you from HTML to deploying production-grade applications on the cloud.",
+      p2: "You'll master React, Node.js, Express, and MongoDB. Every module includes a hands-on project that becomes part of your professional portfolio."
+    }
+  ];
+
+  const tagMap = {
+    'data-analytics':   'Analytics &amp; Visualization',
+    'data-science':     'Science &amp; Modelling',
+    'generative-ai':    'Generative AI',
+    'software-testing': 'QA &amp; Automation',
+    'web-development':  'Full-Stack Development',
+  };
+
+  const rows = c.courses.map((course, i) => {
+    const isEven  = i % 2 === 1;
+    const rowClass = isEven ? 'course-row course-row-reverse' : 'course-row course-row-normal';
+    const desc = extendedDescriptions[i] || { p1: course.description, p2: '' };
+
+    const imgBlock = `
+      <div class="course-row-img" style="background:${course.gradient};">
+        ${course.thumbnail ? `<img src="${course.thumbnail}" alt="${course.title}" />` : ''}
+        <div class="course-row-img-overlay">
+          ${ICONS[course.icon] || ''}
+        </div>
+      </div>`;
+
+    const textBlock = `
+      <div>
+        <div class="course-tag">${tagMap[course.id] || course.tag}</div>
+        <h2 style="font-size:1.65rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin-bottom:14px;">${course.title}</h2>
+        <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:16px;">${desc.p1}</p>
+        ${desc.p2 ? `<p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:24px;">${desc.p2}</p>` : ''}
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${course.skills.map(s => `<span class="badge">${s}</span>`).join('')}
+        </div>
+      </div>`;
+
+    return `<div class="${rowClass}">
+      ${isEven ? textBlock + imgBlock : imgBlock + textBlock}
+    </div>`;
+  }).join('');
+
+  document.getElementById('coursesDetail').innerHTML = rows;
+});
+</script>
+
+<style>
+@media(max-width:768px){
+  .course-row-normal,
+  .course-row-reverse { grid-template-columns: 1fr !important; }
+  .course-row-img { aspect-ratio: 16/9 !important; }
+  /* On mobile always show image first */
+  .course-row-reverse { direction: ltr; }
+}
+</style>
+</body>
+</html>
