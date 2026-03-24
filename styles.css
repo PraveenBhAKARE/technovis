@@ -195,7 +195,7 @@ ul  { list-style: none; }
 
 /* Top bar */
 .header-top {
-  background: var(--gradient-accent);
+  background: navy;
   padding: 7px 0;
 }
 .header-top .container {
@@ -402,7 +402,7 @@ ul  { list-style: none; }
 /* ── Hero (Home) ── */
 .hero {
   min-height: 100vh;
-  background: var(--gradient-hero);
+  background: navy;
   display: flex;
   align-items: center;
   padding: 140px 0 80px;
@@ -424,6 +424,7 @@ ul  { list-style: none; }
   background-size: 60px 60px;
 }
 .hero .container {
+   background: navy;
   position: relative; z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
